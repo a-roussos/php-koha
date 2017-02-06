@@ -22,7 +22,6 @@
 
 $time_start = microtime ( true ) ;
 
-
 if ( isset ( $_GET [ 'bn' ] ) ) {
     if ( filter_var( $_GET [ 'bn' ], FILTER_VALIDATE_INT ) == TRUE ) {
         print_biblionumber_field610a ( $_GET [ 'bn' ] ) ;
