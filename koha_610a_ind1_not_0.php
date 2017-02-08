@@ -22,6 +22,12 @@
 
 $time_start = microtime ( true ) ;
 
+// Please fill in the next variable.
+$staffurl = 'http://<IP_ADDRESS>:<PORT>' ;
+
+$staffurlsuffix = 'cgi-bin/koha/catalogue/detail.pl?biblionumber=%d' ;
+$href = $staffurl . '/' . $staffurlsuffix ;
+
 if ( isset ( $_GET [ 'bn' ] ) ) {
     if ( filter_var( $_GET [ 'bn' ], FILTER_VALIDATE_INT ) == TRUE ) {
         print_biblionumber_field610a ( $_GET [ 'bn' ] ) ;
@@ -106,7 +112,7 @@ function print_biblionumber_field610a ( $biblio ) {
                     $var [ 'field610a' ] ) ;
             else
                 printf ( "<A HREF=\"report_610a-no0.php?bn=%d\">%05d</A> "
-                    . "<A HREF=\"http://192.168.1.114:8080/cgi-bin/koha/catalogue/detail.pl?biblionumber=%d\">(staff view)</A> %s\n",
+                    . '<A HREF="' . $href . "\">(staff view)</A> %s\n",
                     $var [ 'biblionumber' ],
                     $var [ 'biblionumber' ],
                     $var [ 'biblionumber' ],
