@@ -101,11 +101,12 @@ if ( mysqli_num_rows ( $res ) != 0 ) {
         // 610 0  _aOtherValue
         // 610 0  _aValue
         if ( ! empty ( $arr ) ) {
-            foreach ( array_count_values ( $arr ) as $key => $value )
+            foreach ( array_count_values ( $arr ) as $key => $value ) {
                 if ( $value > 1 ) {
                     echo 'biblio ' . $row [ 'biblionumber' ]
                         . " field 610: $value occurrences of " . $key . "\n" ;
                 }
+            }
             unset ( $arr ) ;
         }
     }
