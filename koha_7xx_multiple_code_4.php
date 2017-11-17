@@ -1,7 +1,7 @@
 <?php
 
 /*
- * report_7xx-multiple-code-4.php -- Displays biblionumbers where field
+ * koha_7xx_multiple_code_4.php -- Displays biblionumbers where field
  * 7xx contains multiple '4' subfields.
  * Copyright (C) 2017  Andreas Roussos
  *
@@ -62,7 +62,7 @@ if ( mysqli_num_rows ( $res ) != 0 ) {
             File_MARC::SOURCE_STRING ) ;
         $record = $journals -> next ( ) ;
         $fields = $record -> getFields ( '^7', true ) ;
-        foreach ( $fields as $key1 => $datafield ) {
+        foreach ( $fields as $key => $datafield ) {
             $subfields = $datafield -> getSubfields ( '4' ) ;
             if ( count ( $subfields ) > 1 )
                 echo 'biblionumber ' . $row [ 'biblionumber' ] . ' field '
