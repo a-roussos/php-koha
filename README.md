@@ -11,5 +11,6 @@ koha_610a_duplicates.php | Identifies duplicate information in field 610 subfiel
 koha_610a_ind1_not_0.php | Finds biblios where field 610 indicator 1 is not 0
 koha_7xx_multiple_code_4.php | Displays biblios where field 7xx contains multiple '4' (i.e. role code) subfields
 koha_7xx_without_indicators.php | Displays biblios where a 7xx field has no indicators set
+koha_duplicate_authority_records.php | Detects duplicate authority records based on their Levenshtein distance
 koha_fix_auths_leader.php | Removes trailing space from authority leader
 koha_unused_authority_records.php | Displays unused auth records (i.e. not found in any bib records)
