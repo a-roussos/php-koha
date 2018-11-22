@@ -48,18 +48,19 @@ if ( ! mysqli_set_charset ( $conn, "utf8" ) ) {
 }
 
 $query =
-    'SELECT
+    "SELECT
         items.biblionumber,
-        biblioitems.marcxml
+        biblio_metadata.metadata AS marcxml
     FROM
         items,
-        biblioitems
+        biblio_metadata
     WHERE
-        items.biblionumber = biblioitems.biblionumber
+        items.biblionumber = biblio_metadata.biblionumber AND
+        biblio_metadata.format = 'marcxml'
     GROUP BY
         items.biblionumber
     ORDER BY
-        items.biblionumber ASC' ;
+        items.biblionumber ASC" ;
 
 if ( ! $res = mysqli_query ( $conn, $query ) ) {
     printf ( "mysqli_query failed: %s\n", mysqli_error ( $conn ) ) ;
