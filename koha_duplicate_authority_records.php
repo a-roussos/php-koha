@@ -65,15 +65,15 @@ if ( ! isset ( $_POST [ 'submit' ] ) ) {
       <select name="type">
 <?php
     $query =
-      "SELECT
-          authtypecode,
-          authtypetext
-      FROM
-          auth_types
-      WHERE
-        authtypecode <> ''
-      ORDER BY
-        authtypetext" ;
+        "SELECT
+            authtypecode,
+            authtypetext
+        FROM
+            auth_types
+        WHERE
+            authtypecode <> ''
+        ORDER BY
+            authtypetext" ;
     $result = mysqli_query ( $conn, $query ) ;
     if ( $result )
         if ( mysqli_num_rows ( $result ) > 0 )
@@ -96,13 +96,13 @@ if ( ! isset ( $_POST [ 'submit' ] ) ) {
     $myarr = array ( ) ;
 
     $query =
-        'SELECT
+        "SELECT
             authid,
             marcxml
         FROM
             auth_header
         WHERE
-            authtypecode = "' . $_POST [ 'type' ] . '"' ;
+            authtypecode = '" . $_POST [ 'type' ] . "'" ;
     $result = mysqli_query ( $conn, $query ) ;
 
     if ( $result ) {

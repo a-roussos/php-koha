@@ -60,12 +60,14 @@ function print_biblionumber_field610a ( $biblio ) {
     $query =
         "SELECT
             biblionumber,
-            marcxml
+            metadata AS marcxml
         FROM
-            biblioitems" ;
+            biblio_metadata
+        WHERE
+            format = 'marcxml'" ;
 
     if ( $biblio != 0 )
-        $query .= " WHERE biblionumber = " . $biblio ;
+        $query .= " AND biblionumber = " . $biblio ;
 
     if ( ! $res = mysqli_query ( $conn, $query ) ) {
         printf ( "mysqli_query failed: %s\n", mysqli_error ( $conn ) ) ;

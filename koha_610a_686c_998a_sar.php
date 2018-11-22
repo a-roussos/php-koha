@@ -110,9 +110,11 @@ function search_and_replace (
     $query =
         "SELECT
             biblionumber,
-            marcxml
+            metadata AS marcxml
         FROM
-            biblioitems" ;
+            biblio_metadata
+        WHERE
+            format = 'marcxml'" ;
 
     if ( ! $res = mysqli_query ( $conn, $query ) ) {
         printf ( "mysqli_query failed: %s\n", mysqli_error ( $conn ) ) ;
@@ -188,9 +190,9 @@ function search_and_replace (
                 } elseif ( $dryrun == 0 ) {
                     $qry =
                         "UPDATE
-                            biblioitems
+                            biblio_metadata
                         SET
-                            marcxml = \"" . mysqli_real_escape_string (
+                            metadata = \"" . mysqli_real_escape_string (
                                 $conn, $marcxmlafter ) . "\"
                         WHERE
                             biblionumber = " . $row [ 'biblionumber' ] ;

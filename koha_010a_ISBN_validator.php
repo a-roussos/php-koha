@@ -53,9 +53,11 @@ if ( ! mysqli_set_charset ( $conn, "utf8" ) ) {
 $query =
     "SELECT
         biblionumber,
-        marcxml
+        metadata AS marcxml
     FROM
-        biblioitems" ;
+        biblio_metadata
+    WHERE
+        format = 'marcxml'" ;
 
 if ( ! $res = mysqli_query ( $conn, $query ) ) {
     printf ( "mysqli_query failed: %s\n", mysqli_error ( $conn ) ) ;
