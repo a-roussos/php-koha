@@ -1,5 +1,5 @@
 # php-koha
-Various PHP scripts that interact with the Koha ILS
+Various PHP scripts that interact with the [Koha ILS](https://www.koha-community.org/).
 
 Please note that these scripts refer to **UNIMARC** fields.
 
